@@ -55,6 +55,8 @@ function LinkedList() {
         return numEl;
     }
 
+    const head = () => _head;
+
     const toString = () => {
         let curNode = _head;
         let printStr = '[head] -> '
@@ -71,6 +73,7 @@ function LinkedList() {
         append,
         prepend,
         size,
+        head,
         toString
     }
 }
