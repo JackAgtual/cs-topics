@@ -57,6 +57,15 @@ function LinkedList() {
 
     const head = () => _head;
 
+    const tail = () => {
+        let curNode = _head;
+
+        while (curNode.getNextNode() !== null) {
+            curNode = curNode.getNextNode();
+        }
+        return curNode;
+    }
+
     const toString = () => {
         let curNode = _head;
         let printStr = '[head] -> '
@@ -74,6 +83,7 @@ function LinkedList() {
         prepend,
         size,
         head,
+        tail,
         toString
     }
 }
@@ -86,3 +96,4 @@ myList.prepend('first')
 myList.prepend('zero')
 console.log(myList.toString())
 console.log(myList.size())
+console.log(myList.tail().getValue())
