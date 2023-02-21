@@ -21,7 +21,7 @@ function Node() {
 function LinkedList() {
     const _head = Node();
 
-    const add = value => {
+    const append = value => {
         let curNode = _head;
 
         while (curNode.getNextNode() !== null) {
@@ -47,7 +47,7 @@ function LinkedList() {
     }
 
     return {
-        add,
+        append,
         toString
     }
 }
@@ -55,7 +55,7 @@ function LinkedList() {
 myList = LinkedList()
 
 console.log(myList.toString())
-myList.add('test')
+myList.append('test')
 console.log(myList.toString())
-myList.add('new')
+myList.append('new')
 console.log(myList.toString())
