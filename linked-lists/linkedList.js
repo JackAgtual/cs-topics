@@ -92,6 +92,27 @@ function LinkedList() {
         return null;
     }
 
+    const insertAt = (value, idx) => {
+        let prevNode = _head;
+        let curNode = prevNode.getNextNode();
+        let curIdx = 0;
+
+        const newNode = Node();
+        newNode.setValue(value);
+
+        while (curNode !== null) {
+            if (curIdx === idx) {
+                prevNode.setNextNode(newNode);
+                newNode.setNextNode(curNode);
+                return;
+            };
+
+            prevNode = curNode;
+            curNode = curNode.getNextNode();
+            curIdx++;
+        }
+    }
+
     const toString = () => {
         let curNode = _head;
         let printStr = '[head] -> '
@@ -112,6 +133,7 @@ function LinkedList() {
         tail,
         contains,
         find,
+        insertAt,
         toString
     }
 }
@@ -129,3 +151,6 @@ console.log(myList.contains('new'))
 console.log(myList.contains('news'))
 console.log(myList.find('test'))
 console.log(myList.find(3))
+myList.insertAt('inserted_2', 2)
+myList.insertAt('inserted_10', 10)
+console.log(myList.toString())
