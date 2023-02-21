@@ -34,6 +34,16 @@ function LinkedList() {
         curNode.setNextNode(newNode);
     }
 
+    const prepend = value => {
+        const oldFirst = _head.getNextNode();
+
+        const newNode = Node();
+        newNode.setValue(value);
+
+        _head.setNextNode(newNode);
+        newNode.setNextNode(oldFirst);
+    }
+
     const toString = () => {
         let curNode = _head;
         let printStr = '[head] -> '
@@ -48,14 +58,15 @@ function LinkedList() {
 
     return {
         append,
+        prepend,
         toString
     }
 }
 
 myList = LinkedList()
 
-console.log(myList.toString())
 myList.append('test')
-console.log(myList.toString())
 myList.append('new')
+myList.prepend('first')
+myList.prepend('zero')
 console.log(myList.toString())
