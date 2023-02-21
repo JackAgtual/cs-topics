@@ -77,6 +77,21 @@ function LinkedList() {
         return false;
     }
 
+    const find = value => {
+        let curNode = _head;
+        let idx = 0;
+
+        while (curNode.getNextNode() !== null) {
+
+            curNode = curNode.getNextNode();
+
+            if (curNode.getValue() === value) return idx;
+
+            idx++;
+        }
+        return null;
+    }
+
     const toString = () => {
         let curNode = _head;
         let printStr = '[head] -> '
@@ -96,6 +111,7 @@ function LinkedList() {
         head,
         tail,
         contains,
+        find,
         toString
     }
 }
@@ -111,3 +127,5 @@ console.log(myList.size())
 console.log(myList.tail().getValue())
 console.log(myList.contains('new'))
 console.log(myList.contains('news'))
+console.log(myList.find('test'))
+console.log(myList.find(3))
