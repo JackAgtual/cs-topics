@@ -113,6 +113,23 @@ function LinkedList() {
         }
     }
 
+    const removeAt = idx => {
+        let prevNode = _head;
+        let curNode = prevNode.getNextNode();
+        let curIdx = 0;
+
+        while (curNode !== null) {
+            if (curIdx === idx) {
+                prevNode.setNextNode(curNode.getNextNode());
+                return;
+            };
+
+            prevNode = curNode;
+            curNode = curNode.getNextNode();
+            curIdx++;
+        }
+    }
+
     const toString = () => {
         let curNode = _head;
         let printStr = '[head] -> '
@@ -134,6 +151,7 @@ function LinkedList() {
         contains,
         find,
         insertAt,
+        removeAt,
         toString
     }
 }
@@ -153,4 +171,6 @@ console.log(myList.find('test'))
 console.log(myList.find(3))
 myList.insertAt('inserted_2', 2)
 myList.insertAt('inserted_10', 10)
+console.log(myList.toString())
+myList.removeAt(3)
 console.log(myList.toString())
