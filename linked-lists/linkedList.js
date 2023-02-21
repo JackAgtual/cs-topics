@@ -155,22 +155,3 @@ function LinkedList() {
         toString
     }
 }
-
-myList = LinkedList()
-
-myList.append('test')
-myList.append('new')
-myList.prepend('first')
-myList.prepend('zero')
-console.log(myList.toString())
-console.log(myList.size())
-console.log(myList.tail().getValue())
-console.log(myList.contains('new'))
-console.log(myList.contains('news'))
-console.log(myList.find('test'))
-console.log(myList.find(3))
-myList.insertAt('inserted_2', 2)
-myList.insertAt('inserted_10', 10)
-console.log(myList.toString())
-myList.removeAt(3)
-console.log(myList.toString())
